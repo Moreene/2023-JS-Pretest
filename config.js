@@ -211,13 +211,13 @@ function checkPermission() {
 };
 
 // 在 admin.html 頁面載入時檢查權限
-if (window.location.pathname === '/admin.html') {
+if (window.location.pathname.includes('/admin.html')) {
     checkPermission();
 };
 
 // 個人測試用 
-function deleteUser() {
-    axios.delete('https://demo-2o2s.onrender.com/users/1')
+function deleteUser(num) {
+    axios.delete(`https://demo-2o2s.onrender.com/users/${num}`)
         .then(function (response) {
             console.log(response.data);
         })
